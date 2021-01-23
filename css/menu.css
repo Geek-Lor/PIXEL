@@ -1,0 +1,175 @@
+/* Toggler to open and Close the Humbuger */
+
+.toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Humbuger Box */
+
+.humbuger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(163, 60, 60, 0.2);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  margin: 0.5rem;
+  border-radius: 50%;
+}
+
+/* Create the Humburger */
+
+.humbuger > div {
+  position: relative;
+  width: 100%;
+  height: 0.05rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: 0.75s ease;
+}
+
+.humbuger > div::before,
+.humbuger > div::after {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  width: 100%;
+  height: inherit;
+  background-color: inherit;
+}
+
+.humbuger > div::after {
+  top: 0.5rem;
+}
+
+/* Animate Humbuger when Toggler is Checked */
+
+.toggler:checked + .humbuger > div {
+  transform: rotate(135deg);
+}
+
+/* Turn Lines into X when Clicked */
+
+.toggler:checked + .humbuger > div::before,
+.toggler:checked + .humbuger > div::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Rotate when state is checked and mouse hovers over it */
+
+.toggler:checked:hover + .humbuger > div {
+  transform: rotate(225deg);
+}
+
+/* The Main Navigation Items */
+
+.main-navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.nav-listItem {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.nav-links {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #d4d0d0;
+  opacity: 0;
+}
+
+/* Show Menu Items When Toggler is Clicked */
+
+.toggler:checked ~ .main-navigation {
+  visibility: visible;
+}
+
+.toggler:checked ~ .main-navigation a {
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+/* Responsive Design */
+
+/* Tablet */
+
+@media (min-width: 600px) {
+  header {
+    height: 100vh;
+  }
+
+  .toggler {
+    opacity: 0;
+  }
+
+  .humbuger {
+    opacity: 0;
+  }
+
+  .main-navigation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(163, 60, 60, 0.2);
+    visibility: visible;
+  }
+
+  .nav-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 98%;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .nav-listItem {
+    padding: 0.5rem 1.25rem;
+    border: 0;
+    border-radius: 0.5rem;
+    visibility: visible;
+  }
+
+  .nav-listItem:hover {
+    background-color: rgba(163, 60, 60, 0.4);
+    transition: 0.75s ease-in;
+  }
+
+  .nav-links {
+    color: rgba(0, 0, 0, 0.75);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 960px) {
+  .nav-list {
+    justify-content: flex-end;
+  }
+}

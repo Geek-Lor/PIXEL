@@ -1,0 +1,243 @@
+/* Resetting the Page */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: rgb(210, 210, 216);
+}
+
+/* Header and Landing Page */
+
+header {
+  height: 90vh;
+  background-image: linear-gradient(
+      to top left,
+      rgba(230, 216, 224, 0),
+      rgba(230, 216, 224, 0.5)
+    ),
+    url(../images/2.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.animation-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* The Main Title */
+
+.title-main {
+  display: block;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2.7rem;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+}
+
+.title-sub {
+  display: block;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.075rem;
+
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+}
+
+.button-title {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.button-title a {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.075rem;
+}
+
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  background-color: rgba(163, 60, 60, 0.6);
+  padding: 0.5rem 1.5rem;
+  border: 0;
+  border-radius: 5rem;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-0.16rem);
+  box-shadow: 0 0.6rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: translateY(-0.08rem);
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-animate {
+  animation-name: moveInBottom;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-delay: 0.75s;
+  animation-fill-mode: backwards;
+}
+
+/* Animating the Main Title */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-3.5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(4rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animate the Title-Button */
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3.5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/** Main Section **/
+
+/* Section Heading */
+
+h2 {
+  font-size: 1rem;
+  font-weight: 200;
+  text-align: center;
+  margin: 0.75rem 0;
+  letter-spacing: 0.1rem;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  border: none;
+  border-radius: 0.8rem;
+  width: 250px;
+  height: 360px;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+/** Rotate The Card **/
+
+.card-content {
+  position: relative;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  transform-style: preserve-3d;
+  transition: transform 2s;
+}
+
+.card:hover .card-content {
+  transform: rotateY(0.5turn);
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background-color: rgba(204, 195, 180, 0.75);
+}
+
+img {
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+}
+
+/** Footer **/
+
+footer {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #f5f5f5;
+  padding: 0.5rem;
+  text-align: center;
+  border-top-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #f5f5f5;
+}
+
+/** Responsive Section **/
+
+@media (min-width: 600px) {
+  .main-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+  }
+
+  .card {
+    width: 300px;
+    height: 400px;
+    margin: 0.8em;
+  }
+}
